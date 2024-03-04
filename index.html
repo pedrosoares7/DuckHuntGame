@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck Hunt Game</title>
+    <link rel="stylesheet" href="styles.css"/>  
+    <link rel="icon" type="image/x-icon" href="rubber-duck.ico">  
+</head>
+<body>
+    <div id="main-field-container" class="field-container">
+       <img src="images/target.png" alt="" class="mouse" id="mouse"/> 
+        <div id="grass" class="background"></div>
+
+
+        <div id="starting-timer"></div> 
+        
+        <div id="dogRun"></div>
+
+        <div id="dogLaughContainer"></div>
+
+        <div id="dogGotDuckContainer"></div>
+
+        <div id="round-number-container" class = "round-number-container">
+             <div class ="round-inner">R.</div>
+             <div class ="roundNumber">1</div>
+        </div>    
+
+        <div id="bullet-counter">
+            <div class="bullet1-cover"></div>
+            <div class="bullet2-cover"></div>
+            <div class="bullet3-cover"></div>
+            <img src = "images/bullet-counter.png">
+        </div>
+
+        <div id ="game-over-wrapper" class ="game-over-wrapper">
+            <h1 class= "title-game-over">GAME OVER</h1>
+            <div class = "scoreGame">
+            <p>Score: <span id= "score">0</span></p>
+            </div>
+            <a href="index.html" >
+                <div class = "restart-button"><center><img id = "restart-button" src= "images/Replay-button.png" ></center>
+                </div>
+            </a>
+        </div>
+
+
+        <div id ="winner-wrapper" class ="winner-wrapper">
+            <h1 class= "title-winner">YOU WON</h1>
+            <div class = "scoreGame">
+            <p>Score: <span id= "winnerScore">0</span></p>
+            </div>
+            <a href="index.html">
+                <div class = "restart-button"><center><img id = "replay-button" src= "images/Replay-button.png"></center>
+                </div>
+            </a>
+        </div> 
+
+
+        <div id = "round-wrapper" class ="round-wrapper">
+            <div class ="tittle-round">
+            <h1>ROUND <span id= "roundNumberWrapper">1</span></h1>
+            </div>
+            <div class = "scoreGame">
+            <p>Score: <span id= "roundScore">0</span></p>
+            </div>
+        </div> 
+        
+        <div class="ducks-counter">
+            <div class= "ducks-counter-inner"> 
+            HIT
+            </div>
+
+            <div class="little-ducks">
+                <div>𓅭</div>
+                <div>𓅭</div>
+                <div>𓅭</div>
+                <div>𓅭</div>
+                <div>𓅭</div>
+                <div>𓅭</div>
+            </div>
+        </div>
+
+       
+
+        <div class = "score-container">
+            <div class = "score-inner">SCORE</div>
+            <div class="score">000000</div>
+            
+        </div>
+    
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

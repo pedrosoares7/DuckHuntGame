@@ -1,0 +1,1070 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+
+}
+
+@font-face {
+  font-family: DuckHuntFont;
+  src: url(fonts/m29.TTF);
+}
+
+body {
+  background-color: aqua;
+}
+
+body,
+.field-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: none;
+}
+
+.background {
+  background-image: url(images/stage2.png);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.main-menu-container {
+  background-image: url(images/stage2.png);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 100;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.wrapper {
+  width: 32%;
+  height: 70%;
+  border: 0.4em solid yellow;
+  border-radius: 0.6em;
+  position: fixed;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  align-self: center;
+  display: flex;
+  margin-top: 8%;
+  flex-direction: column;
+  z-index: 140;
+}
+
+.title img {
+  width: 80%;
+  height: auto;
+  padding: 2%;
+}
+
+#play-button {
+  width: 60%;
+  height: 0%;
+  align-self: center;
+  justify-content: center;
+  transition: filter 0.3s ease-in-out;
+  z-index: 250;
+  align-items: center;
+  margin-top: -30%;
+}
+
+.dogGotOne img {
+  width: 40%;
+  height: auto;
+  margin-top: 5%;
+  z-index: 200;
+
+}
+
+
+.game-over-wrapper {
+  display: none;
+  width: 60%;
+  height: 65%;
+  flex-direction: column;
+  position: fixed;
+  z-index: 145;
+  align-self: center;
+  align-items: center;
+}
+
+#restart-button,
+#replay-button {
+  width: 30%;
+  height: 30%;
+}
+
+.restart-button {
+  justify-content: center;
+}
+
+.title-game-over,
+.title-winner {
+  font-family: duckHuntFont;
+  font-size: 600%;
+  padding: 0.1em;
+  text-align: center;
+  color: orangered
+}
+
+.scoreGame {
+  color: yellow;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 4em;
+  text-align: center;
+}
+
+
+.winner-wrapper {
+  display: none;
+  width: 60%;
+  height: 65%;
+  flex-direction: column;
+  position: fixed;
+  z-index: 145;
+  align-self: center;
+  align-items: center;
+}
+
+.round-wrapper {
+  display: none;
+  width: 60%;
+  height: 65%;
+  flex-direction: column;
+  position: fixed;
+  z-index: 145;
+  align-self: center;
+  align-items: center;
+}
+
+.tittle-round {
+  font-family: duckHuntFont;
+  font-size: 500%;
+  text-align: center;
+  padding: 0.1em;
+  color: black;
+}
+
+.tittle-round {
+  font-size: 150%;
+}
+
+
+
+.title-winner {
+  font-family: duckHuntFont;
+  font-size: 800%;
+  padding: 0.1em;
+  text-align: center;
+  color: orange;
+}
+
+
+#starting-timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease-out;
+  z-index: 120;
+}
+
+#round-number-container {
+  background-color: black;
+  position: fixed;
+  left: 5em;
+  width: 5.2em;
+  height: 3em;
+  z-index: 110;
+  bottom: 6em;
+  border: 0.2em solid rgb(162, 242, 119);
+  overflow: hidden;
+  border-radius: 0.6em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.round-inner,
+.roundNumber {
+  font-size: 1.2em;
+  height: 100%;
+  color: rgb(162, 242, 119);
+  font-family: duckHuntFont;
+  justify-content: center;
+  margin-top: 0.6em;
+
+}
+
+
+
+#bullet-counter {
+  position: fixed;
+  left: 5em;
+  background-color: black;
+  color: whitesmoke;
+  z-index: 150;
+  bottom: 1.5em;
+  border: 0.2em solid rgb(162, 242, 119);
+  border-radius: 0.6em;
+}
+
+
+#bullet-counter img {
+  width: 5em;
+  height: 3em;
+  border-radius: 3em;
+}
+
+.bullet1-cover,
+.bullet2-cover,
+.bullet3-cover {
+  position: absolute;
+  top: 0;
+  width: 1.5em;
+  height: 1.8em;
+  background-color: black;
+  z-index: 200;
+  display: none;
+}
+
+.bullet1-cover {
+  right: 0.2em;
+}
+
+.bullet2-cover {
+  right: 2em;
+}
+
+.bullet3-cover {
+  right: 3em;
+}
+
+
+.ducks-counter {
+  background-color: black;
+  position: fixed;
+  bottom: 1.5em;
+  right: 25em;
+  width: 20em;
+  height: 5em;
+  z-index: 102;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  border: 0.2em solid rgb(162, 242, 119);
+  border-radius: 1em;
+}
+
+.ducks-counter-inner {
+  color: rgb(162, 242, 119);
+  font-family: duckHuntFont;
+  font-size: 2em;
+  height: 100%;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  margin-bottom: 0.3em;
+  margin-top: 1.4em;
+  overflow: hidden;
+}
+
+.little-ducks {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  overflow: hidden;
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
+.score-container {
+  background-color: black;
+  position: fixed;
+  bottom: 1.5em;
+  right: 5em;
+  width: 10em;
+  height: 4em;
+  border-radius: 1em;
+  z-index: 105;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: hidden;
+  border: 3px solid rgb(162, 242, 119);
+}
+
+.score-inner,
+.score {
+  font-size: 0.7em;
+  height: 100%;
+  color: whitesmoke;
+  font-family: duckHuntFont;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.score-inner {
+  color: rgb(162, 242, 119);
+}
+
+
+
+.mouse {
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  z-index: 150;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ************         DUCK HORIZONTAL FLY       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyRight,
+.duckFlyBack {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 34px;
+  height: 24px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+}
+
+
+.duckFlyRightAnimation {
+  animation:
+    flyMove 3s linear,
+    rightFlyDuck 0.25s steps(1) infinite forwards;
+  animation-direction: normal;
+}
+
+@keyframes flyMove {
+  from {
+    transform: translate(var(--duckXO), var(--duckYO)) scale(3);
+  }
+
+  to {
+    transform: translate(var(--duckX), var(--duckY)) scale(3);
+  }
+
+}
+
+
+@keyframes rightFlyDuck {
+
+  0% {
+    width: 34px;
+    height: 24px;
+    background-position: 0 -121px;
+  }
+
+  50% {
+    width: 34px;
+    height: 20px;
+    background-position: -40px -123px;
+  }
+
+  100% {
+    width: 32px;
+    height: 28px;
+    background-position: -81px -119px;
+  }
+
+
+}
+
+
+.duckFlyBackAnimation {
+  animation:
+    flyBackMove 2s linear,
+    rightFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+@keyframes flyBackMove {
+  from {
+    transform: translate(var(--backDuckOX), var(--backDuckOY)) scale(3) scaleX(-1);
+  }
+
+  to {
+    transform: translate(var(--backDuckX), var(--backDuckY)) scale(3) scaleX(-1);
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ************         DUCK VERTICAL FLY UP      ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyUp,
+.duckFlyDown {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 24px;
+  height: 31px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+
+}
+
+.duckFlyUpAnimation {
+  animation:
+    flyUp 2s linear,
+    upFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+@keyframes upFlyDuck {
+
+  0% {
+    background-position: -5px -197px;
+    width: 24px;
+    height: 31px;
+  }
+
+  50% {
+    background-position: -41px -197px;
+    width: 32px;
+    height: 31px;
+  }
+
+  100% {
+    background-position: -82px -198px;
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
+@keyframes flyUp {
+  from {
+    transform: translate(var(--upDuckOX), var(--upDuckOY)) scale(3);
+  }
+
+  to {
+    transform: translate(var(--upDuckX), var(--upDuckY)) scale(3);
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ************         DUCK VERTICAL FLY DOWN      ********************** */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyDownAnimation {
+  animation:
+    flyDown 2s linear,
+    upFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+
+
+@keyframes flyDown {
+  from {
+    transform: translate(var(--downDuckOX), var(--downDuckOY)) scale(3) scaleY(-1);
+  }
+
+  to {
+    transform: translate(var(--downDuckX), var(--downDuckY)) scale(3) scaleY(-1);
+  }
+}
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* **************         DUCK DIAGONAL FLY       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyDiagonalRightUp {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 25px;
+  height: 31px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+
+}
+
+.diagonalRightUpAnimation {
+  animation:
+    diagonalMoveRightUp 2s linear,
+    diagonalFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+
+@keyframes diagonalFlyDuck {
+  0% {
+    width: 25px;
+    height: 31px;
+    background-position: -4px -157px;
+  }
+
+  50% {
+    width: 32px;
+    height: 29px;
+    background-position: -41px -158px;
+    ;
+  }
+
+  100% {
+    width: 27px;
+    height: 31px;
+    background-position: -83px -157px;
+  }
+}
+
+@keyframes diagonalMoveRightUp {
+  from {
+    transform: translate(var(--rUpDuckXO), var(--rUpDuckYO)) scale(3);
+  }
+
+  to {
+    transform: translate(var(--rUpDuckX), var(--rUpDuckY)) scale(3);
+
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* **************         DUCK DIAGONAL LEFT DOWN       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyDiagonalLeftDown {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 25px;
+  height: 31px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+}
+
+.diagonalLeftDownAnimation {
+  animation:
+    diagonalMoveLeftDown 2s linear,
+    diagonalFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+
+@keyframes diagonalMoveLeftDown {
+  from {
+    transform: translate(var(--leftDownXO), var(--leftDownYO)) scale(3) rotateY(180deg) rotateZ(90deg);
+  }
+
+  to {
+    transform: translate(var(--leftDownX), var(--leftDownY)) scale(3) rotateY(180deg) rotateZ(90deg);
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* **************         DUCK DIAGONAL RIGHT DOWN       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyDiagonalRightDown {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 25px;
+  height: 31px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+
+
+}
+
+.diagonalRightDownAnimation {
+  animation:
+    diagonalMoveRightDown 2s linear,
+    diagonalFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+
+@keyframes diagonalMoveRightDown {
+  from {
+    transform: translate(var(--rightDownXO), var(--rightDownYO)) scale(3) rotateZ(90deg);
+    /* transform: translate(20vw, 0%) scale(3) rotateZ(90deg); */
+  }
+
+  to {
+    transform: translate(var(--rightDownX), var(--rightDownY)) scale(3) rotateZ(90deg);
+    /* transform: translate(80vw,35vw) scale(3) rotateZ(90deg); */
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* **************         DUCK DIAGONAL LEFT UP       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckFlyDiagonalLeftUp {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 25px;
+  height: 31px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+
+}
+
+.diagonalLeftUpAnimation {
+  animation:
+    diagonalMoveLeftUp 2s linear,
+    diagonalFlyDuck 0.25s steps(1) infinite;
+  animation-direction: normal;
+}
+
+
+@keyframes diagonalMoveLeftUp {
+  from {
+    transform: translate(var(--leftUpXO), var(--leftUpYO)) scale(3) rotateY(180deg);
+  }
+
+  to {
+    transform: translate(var(--leftUpX), var(--leftUpY)) scale(3) rotateY(180deg);
+  }
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* **************         THE DUCK'S DEATH       ************************ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.duckDeathFall {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  background-position: -48px -237px;
+  width: 18px;
+  height: 30px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  transform: scale(3);
+
+
+}
+
+.duckDeathFallAnimation {
+  animation:
+    deathMove 1s linear;
+  /* deathConvultions 0.25 steps(1) linear; */
+
+  animation-direction: normal;
+}
+
+@keyframes deathMove {
+  from {
+    transform: translate(var(--deathMoveXo), var(--deathMoveYo)) scale(3) scaleX(-1);
+  }
+
+  to {
+    transform: translate(var(--deathMoveX), var(--deathMoveY)) scale(3);
+  }
+
+}
+
+
+
+
+.duckHeadShot {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  background-position: -1px -238px;
+  width: 31px;
+  height: 29px;
+  z-index: 90;
+  top: var(--positionDeathY);
+  left: var(--positionDeathX);
+  transform: scale(3);
+  animation: duckHeadShotAnimation 0.5s;
+}
+
+@keyframes duckHeadShotAnimation {
+  0% {
+    transform: scale(3) translateX(0);
+  }
+
+  0% {
+    transform: scale(5) translateX(0);
+  }
+
+  100% {
+    transform: scale(3) translateX(0);
+
+  }
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ***********************         DOG       ***************************** */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+.dogRunContainer {
+  position: absolute;
+  z-index: 150;
+  bottom: 20%;
+  left: 10%;
+  width: 60px;
+  height: 45px;
+  z-index: 110;
+  background: no-repeat;
+  background: url("/images/duckhunt_various_sheet.png");
+  animation: dogRunAnimation 1s steps(1) 3 forwards,
+    dogMoveAnimation 2s linear 1 forwards,
+    dogSniffAnimation 1s steps(1) 2.5s 2 forwards,
+    dogJumpAnimation 1.5s steps(1) 4.5s forwards,
+    dogJumpMovementAnimation 1s ease-in-out 5s forwards;
+  transform: scale(4);
+
+}
+
+@keyframes dogRunAnimation {
+  0% {
+    background-position: -5px -3px;
+    width: 53px;
+    height: 40px;
+  }
+
+  25% {
+    background-position: -66px -1px;
+    width: 51px;
+    height: 43px;
+
+  }
+
+  50% {
+    background-position: -126px -1px;
+    width: 54px;
+    height: 43px;
+  }
+
+  75% {
+    background-position: -184px -3px;
+    width: 55px;
+    height: 40px;
+
+  }
+
+  100% {
+    background-position: -245px -3px;
+    width: 53px;
+    height: 40px;
+  }
+}
+
+
+@keyframes dogSniffAnimation {
+  0% {
+    background-position: -245px -3px;
+    width: 53px;
+    height: 40px;
+  }
+
+  50% {
+    background-position: -184px -3px;
+    width: 58px;
+    height: 40px;
+
+
+  }
+
+  100% {
+    background-position: -245px -3px;
+    width: 53px;
+    height: 40px;
+  }
+}
+
+@keyframes dogMoveAnimation {
+  0% {
+    transform: scale(4) translateX(0);
+  }
+
+  100% {
+    transform: scale(4) translateX(90px);
+
+  }
+}
+
+@keyframes dogJumpMovementAnimation {
+  0% {
+    transform: scale(4) translateX(120px) translateY(0);
+  }
+
+
+  65% {
+    transform: scale(4) translateX(150px) translateY(-40px);
+    z-index: 200;
+  }
+
+  70% {
+    transform: scale(4) translateX(150px) translateY(-40px);
+    z-index: 0;
+  }
+
+  100% {
+    transform: scale(4) translateX(150px) translateY(10px);
+    z-index: 0;
+    display: none;
+  }
+}
+
+@keyframes dogJumpAnimation {
+  0% {
+
+    background-position: -245px -3px;
+    width: 53px;
+    height: 40px;
+  }
+
+  20% {
+    background-position: -5px -59px;
+    width: 53px;
+    height: 48px;
+  }
+
+  40% {
+
+    background-position: -74px -60px;
+    width: 35px;
+    height: 46px;
+  }
+
+  60% {
+
+    background-position: -135px -67px;
+    width: 53px;
+    height: 50px;
+  }
+
+  80% {
+
+    background-position: -135px -67px;
+    width: 53px;
+    height: 50px;
+  }
+
+  100% {
+    background-position: -135px -67px;
+    width: 53px;
+    height: 50px;
+  }
+}
+
+#dogLaughContainer {
+  position: absolute;
+  z-index: 90;
+  bottom: 15%;
+  left: 50%;
+  width: 29px;
+  height: 39px;
+  transform: translate(-50%);
+  background: no-repeat;
+  background: url("/images/duckhunt_various_sheet.png");
+  transform: scale(4);
+
+}
+
+#dogLaughContainer.dogLaughAnimate {
+  animation: dogLaughAnimation 3s steps(1) forwards, dogLaughMoveAnimation 2s 1 linear forwards;
+}
+
+@keyframes dogLaughAnimation {
+  0% {
+    background-position: -197px -63px;
+    width: 29px;
+    height: 39px;
+  }
+
+  25% {
+    background-position: -257px -63px;
+    width: 29px;
+    height: 39px;
+  }
+
+  50% {
+    background-position: -197px -63px;
+    width: 29px;
+    height: 40px;
+
+  }
+
+  75% {
+    background-position: -257px -63px;
+    width: 29px;
+    height: 39px;
+  }
+
+  100% {
+    background-position: -197px -63px;
+    width: 29px;
+    height: 40px;
+
+  }
+}
+
+@keyframes dogLaughMoveAnimation {
+  0% {
+    transform: scale(4) translateY(0);
+  }
+
+  25% {
+    transform: scale(4) translateY(-30px);
+  }
+
+  50% {
+    transform: scale(4) translateY(-30px);
+  }
+
+  75% {
+    transform: scale(4) translateY(-30px);
+  }
+
+  100% {
+    transform: scale(4) translateY(0px);
+  }
+}
+
+
+#dogGotDuckContainer {
+  position: absolute;
+  z-index: 90;
+  bottom: 15%;
+  left: 50%;
+  width: 43px;
+  height: 39px;
+  transform: translate(-50%);
+  background: no-repeat;
+  background: url("/images/duckhunt_various_sheet.png");
+  transform: scale(4);
+
+}
+
+#dogGotDuckContainer.dogGotDuckAnimate {
+  animation: dogGotDuckAnimation 3s steps(1) forwards, dogGotDuckMoveAnimation 2s 1 linear forwards;
+}
+
+@keyframes dogGotDuckAnimation {
+  0% {
+    background-position: -332px -3px;
+    width: 43px;
+    height: 39px;
+  }
+
+  100% {
+    background-position: -332px -3px;
+    width: 43px;
+    height: 39px;
+
+  }
+}
+
+@keyframes dogGotDuckMoveAnimation {
+  0% {
+    transform: scale(4) translateY(0);
+  }
+
+  25% {
+    transform: scale(4) translateY(-38px);
+  }
+
+  50% {
+    transform: scale(4) translateY(-38px);
+  }
+
+  75% {
+    transform: scale(4) translateY(-38px);
+  }
+
+  100% {
+    transform: scale(4) translateY(0px);
+  }
+}
+
+.invisible {
+  display: none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ***********************         DUCK-MAIN       *********************** */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#duckMain {
+  position: absolute;
+  background: url('images/duckhunt_various_sheet.png');
+  width: 34px;
+  height: 24px;
+  z-index: 90;
+  top: 5%;
+  left: 5%;
+  animation:
+    duckMainFly 1s steps(1) infinite;
+  animation-direction: normal;
+  display: none;
+
+}
+
+@keyframes duckMainFly {
+
+  0% {
+    width: 34px;
+    height: 24px;
+    background-position: 0 -121px;
+  }
+
+  50% {
+    width: 34px;
+    height: 20px;
+    background-position: -40px -123px;
+  }
+
+  100% {
+    width: 32px;
+    height: 28px;
+    background-position: -81px -119px;
+  }
+
+
+}
